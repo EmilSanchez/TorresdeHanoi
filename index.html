@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torres de Hanoi</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <h1>Juego Torres de Hanoi</h1>
+  <p>Movimientos mínimos: <span id="minMov"></span> | Movimientos realizados: <span id="realMov">0</span></p>
+
+  <label for="numDiscos">Número de discos: </label>
+  <select id="numDiscos">
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+
+  </select>
+  
+  <button onclick="render()">Iniciar Juego</button>
+
+  <div class="torres">
+    <div class="torre" id="torreA"></div>
+    <div class="torre" id="torreB"></div>
+    <div class="torre" id="torreC"></div>
+  </div>
+
+  <div class="panel">
+    <label>Desde:
+      <select id="desde">
+        <option value="A">Torre A</option>
+        <option value="B">Torre B</option>
+        <option value="C">Torre C</option>
+      </select>
+    </label>
+    <label>Hacia:
+      <select id="hacia">
+        <option value="A">Torre A</option>
+        <option value="B">Torre B</option>
+        <option value="C">Torre C</option>
+      </select>
+    </label>
+    <button onclick="moverDisco()">Mover Disco</button>
+  </div>
+
+  <script src="script.js" defer></script>
+  
+</body>
+</html>
