@@ -13,7 +13,6 @@ body {
 
 .torre {
     background: #ddd;
-    width: 150px;
     height: 300px;
     position: relative;
     border: 2px solid #aaa;
@@ -34,21 +33,41 @@ body {
 .disco-1 {
   background-color: #ff5722; /* naranja */
 }
-
 .disco-2 {
   background-color: #03a9f4; /* azul */
 }
-
 .disco-3 {
   background-color: #4caf50; /* verde */
 }
-
 .disco-4 {
   background-color: #9c27b0; /* morado */
 }
-
 .disco-5 {
   background-color: #ffc107; /* amarillo */
+}
+.disco-6 {
+  background-color: #216025; /* naranja claro */
+}
+.disco-7 {
+  background-color: #2196f3; /* azul claro */
+}
+.disco-8 {
+  background-color: #673ab7; /* morado claro */
+}
+.disco-9 {
+  background-color: #5f5707; /* amarillo claro */
+}
+.disco-10 {
+  background-color: #8bc34a; /* verde claro */
+}
+.disco-11 {
+  background-color: #e91e63; /* rosa */
+}
+.disco-12 {
+  background-color: #00bcd4; /* cyan */
+}
+.disco-13 {
+  background-color: #ff5722; /* naranja oscuro */
 }
 .panel {
     margin-top: 20px;
@@ -58,4 +77,15 @@ select, button {
     font-size: 16px;
     padding: 5px;
     margin: 5px;
+}
+
+.reinciarJuego button{
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

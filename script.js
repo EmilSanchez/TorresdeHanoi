@@ -52,21 +52,26 @@ class Pila {
     }
 }
 
-// Variables globales
+function iniciarJuego() {
+    const n = parseInt(document.getElementById("numDiscos").value, 10);
+  
     const torreA = new Pila("A");
     const torreB = new Pila("B");
     const torreC = new Pila("C");
-    const torres = { A: torreA, B: torreB, C: torreC };
-    const n = prompt("Ingrese el número de discos:");
-    let movimientos = 0;
+    torres = { A: torreA, B: torreB, C: torreC };
+  
+    for (let i = n; i >= 1; i--) {
+      torreA.apilar(i);
+    }
+  
+    movimientos = 0;
     const minMov = Math.pow(2, n) - 1;
     document.getElementById("minMov").textContent = minMov;
-
-// Inicializar torre A
-for (let i = n; i >= 1; i--) {
-    torreA.apilar(i);
+    document.getElementById("realMov").textContent = movimientos;
+  
+    render();
 }
-
+  
 function render() {
 ["A", "B", "C"].forEach(id => {
 const contenedor = document.getElementById("torre" + id);
@@ -84,12 +89,6 @@ discos.slice().reverse().forEach((valor, index) => {
 });
 });
 document.getElementById("realMov").textContent = movimientos;
-}
-
-
-
-function verificarVictoria() {
-    return torreB.cantidadElementos() === n || torreC.cantidadElementos() === n;
 }
 
 function moverDisco() {
@@ -118,7 +117,7 @@ function moverDisco() {
     movimientos++;
     render();
 
-    if (verificarVictoria()) {
+    if (torreB.cantidadElementos() === n || torreC.cantidadElementos() === n)  {
     setTimeout(() => {
         alert(`¡Felicidades! Completaste el juego en ${movimientos} movimientos.`);
     }, 100);
