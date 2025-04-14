@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
   <body>
-    <h1>Juego Torres de Hanoi</h1>
+    <div class="inicio">
+      <h1>Torres de Hanoi</h1>
+    </div>
+    
     <p>Movimientos mínimos: <span id="minMov"></span> | Movimientos realizados: <span id="realMov">0</span></p>
 
-    <label for="numDiscos">Número de discos: </label>
+    <label for="numDiscos">Seleccione el número de discos: </label>
     <select id="numDiscos">
       <option value="3" selected>3</option>
       <option value="4">4</option>
@@ -25,7 +28,7 @@
       <option value="13">13</option>
     </select>
     
-    <button onclick="iniciarJuego()">Iniciar Juego</button>
+    <button class = "iniciarJuego" onclick="iniciarJuego()">Iniciar Juego</button>
 
     <div class = "container">
       <div class="torres col-sm-3">
@@ -51,8 +54,8 @@
           <option value="C">Torre C</option>
         </select>
       </label>
-
-      <button onclick="moverDisco()">Mover Disco</button><br>
+      <br>
+      <button onclick="moverDisco()" class="moverDisco">Mover Disco</button><br>
       <button onclick="reiniciarJuego()" class="reiniciarJuego">Reiniciar Juego</button>
 
     </div>
