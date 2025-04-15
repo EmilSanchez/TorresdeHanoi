@@ -52,6 +52,8 @@ class Pila {
     }
 }
 
+
+
 function iniciarJuego() {
     const n = parseInt(document.getElementById("numDiscos").value, 10); 
 
@@ -89,20 +91,40 @@ function actualizar_torre() {
             disco.textContent = valor;
             disco.style.width = (valor * 20) + "px";
             disco.style.left = (75 - valor * 10) + "px";
-            disco.style.bottom = (index * 22) + "px"; // Apilado visual
+            disco.style.bottom = (index * 22) + "px"; 
             contenedor.appendChild(disco);
         });
     });
     document.getElementById("realMov").textContent = movimientos;
+
+
 }
 
-function moverDisco() {
+let torreSeleccionadaDesde = null;
+let torreSeleccionadaHacia = null;
+
+
+function seleccionarTorre(torreId) {
+    if (!torreSeleccionadaDesde) {
+        torreSeleccionadaDesde = torreId;
+        
+    } else {
+        torreSeleccionadaHacia = torreId;
+        
+
+        moverDisco(torreSeleccionadaDesde, torreSeleccionadaHacia);
+
+        // Reiniciar selecciones
+        torreSeleccionadaDesde = null;
+        torreSeleccionadaHacia = null;
+    }
+}
+
+function moverDisco(desde, hacia) {
     const n = parseInt(document.getElementById("numDiscos").value, 10);
 
-    const desde = document.getElementById("desde").value;
-    const hacia = document.getElementById("hacia").value;
     if (desde === hacia) {
-        alert("Debe mover a una torre diferente.");
+        alert("Debes mover a una torre diferente.");
         return;
     }
 
@@ -114,27 +136,30 @@ function moverDisco() {
         return;
     }
 
-    if (origen.verCima() > destino.verCima()) {
-        alert("Movimiento inválido: no se puede colocar un disco grande sobre uno pequeño.");
+    const discoOrigen = origen.verCima();
+    const discoDestino = destino.verCima();
+
+    if (!destino.estaVacia() && discoOrigen > discoDestino) {
+        alert("Movimiento inválido: no puedes colocar un disco grande sobre uno pequeño.");
         return;
     }
 
     const disco = origen.desapilar();
     destino.apilar(disco);
     movimientos++;
+
     actualizar_torre();
 
     if (torres["B"].cantidad_Discos() === n || torres["C"].cantidad_Discos() === n)  {
         setTimeout(() => alert("¡Felicidades! Completaste el juego en " + movimientos + " movimientos."), 100);
-    } 
+    }
 }
+
 
 function reiniciarJuego() {
     document.getElementById("numDiscos").value = "3";
     document.getElementById("minMov").textContent = "";
     document.getElementById("realMov").textContent = "";
-    document.getElementById("desde").value = "A";
-    document.getElementById("hacia").value = "B";
     torres = {};
     movimientos = 0;
     ["A", "B", "C"].forEach(id => {

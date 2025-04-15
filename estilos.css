@@ -75,6 +75,66 @@ body {
 }
 
 
+.moverD{
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  display: flex;  
+  padding: 10px 20px;
+
+}
+
+.moverD button {
+  position: relative;
+  color: rgb(0, 0, 0);
+  border: 0.5px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 500px;
+  justify-content: center ;
+  font-weight: bold;
+}
+
+.moverD button.torreA{
+  background-color: #697b7e;
+}
+
+.moverD button.torreA:hover {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.moverD button.torreA:active {
+  background-color: #046762;
+}
+
+.moverD button.torreB{
+  background-color: #697b7e;
+}
+
+.moverD button.torreB:hover {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.moverD button.torreB:active {
+  background-color: #046762;
+}
+
+
+.moverD button.torreC{
+  background-color: #697b7e;
+}
+
+.moverD button.torreC:hover {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.moverD button.torreC:active {
+  background-color: #046762;
+}
+
 
 .disco-1 {
   background-color: #ff5722; /* naranja */
@@ -130,9 +190,10 @@ select, button {
 .panel button.reiniciarJuego {
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #9ba306;
+  background-color: #d3de05;
   color: rgb(0, 0, 0);
-  border: none;
+  border: 0.5px solid #000;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
 }

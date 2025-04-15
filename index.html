@@ -14,6 +14,7 @@
     <p>Movimientos mínimos: <span id="minMov"></span> | Movimientos realizados: <span id="realMov">0</span></p>
 
     <label for="numDiscos">Seleccione el número de discos: </label>
+
     <select id="numDiscos">
       <option value="3" selected>3</option>
       <option value="4">4</option>
@@ -37,32 +38,26 @@
         <div class="torre" id="torreC"></div>
       </div>
     </div>
+    <div class="container">
+      <div class="moverD">
+        <button onclick="seleccionarTorre('A')" class="torreA">TORRE A</button><br>
+        <button onclick="seleccionarTorre('B')" class="torreB">TORRE B</button><br>
+        <button onclick="seleccionarTorre('C')" class="torreC">TORRE C</button><br>
+      </div>
+    </div>
+    
     
     <div class="panel">
-      <label>Desde:
-        <select id="desde">
-          <option value="A">Torre A</option>
-          <option value="B">Torre B</option>
-          <option value="C">Torre C</option>
-        </select>
-      </label>
 
-      <label>Hacia:
-        <select id="hacia">
-          <option value="A">Torre A</option>
-          <option value="B">Torre B</option>
-          <option value="C">Torre C</option>
-        </select>
-      </label>
-      <br>
-      <button onclick="moverDisco()" class="moverDisco">Mover Disco</button><br>
       <button onclick="reiniciarJuego()" class="reiniciarJuego">Reiniciar Juego</button>
 
-    </div>
-  
+    </div>  
   </body>
+
   <footer>
     <p>Juego realizado por Lina Caro y Emil Sanchez 2025 &#174;</p>
   </footer>
+
   <script src="script.js" defer></script>
+
 </html>
