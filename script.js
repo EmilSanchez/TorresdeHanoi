@@ -4,6 +4,7 @@ class Nodo {
         this.siguiente = null;
     }
 }
+
 class Pila {
     constructor(nombre) {
         this.nombre = nombre;
@@ -52,8 +53,6 @@ class Pila {
     }
 }
 
-
-
 function iniciarJuego() {
     const n = parseInt(document.getElementById("numDiscos").value, 10); 
 
@@ -65,6 +64,7 @@ function iniciarJuego() {
     const torreA = new Pila("A");
     const torreB = new Pila("B");
     const torreC = new Pila("C");
+
     torres = { A: torreA, B: torreB, C: torreC };
   
     for (let i = n; i >= 1; i--) {
@@ -75,7 +75,6 @@ function iniciarJuego() {
     const minMov = Math.pow(2, n) - 1;
     document.getElementById("minMov").textContent = minMov;
     document.getElementById("realMov").textContent = movimientos;
-  
     actualizar_torre();
 }
   
@@ -84,7 +83,9 @@ function actualizar_torre() {
         const contenedor = document.getElementById("torre" + id);
         contenedor.innerHTML = "";
         const discos = torres[id].obtenerDiscos();
+
         // ¡Aquí está el cambio clave!
+
         discos.slice().reverse().forEach((valor, index) => {
             const disco = document.createElement("div");
             disco.className = `disco disco-${valor}`;
@@ -94,15 +95,15 @@ function actualizar_torre() {
             disco.style.bottom = (index * 22) + "px"; 
             contenedor.appendChild(disco);
         });
+
     });
+
     document.getElementById("realMov").textContent = movimientos;
-
-
+    
 }
 
 let torreSeleccionadaDesde = null;
 let torreSeleccionadaHacia = null;
-
 
 function seleccionarTorre(torreId) {
     if (!torreSeleccionadaDesde) {
