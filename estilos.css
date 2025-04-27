@@ -54,7 +54,6 @@ body {
   margin-left: -77px;
 }
 
-
 .iniciarJuego{
   margin-top: 15px;
   padding: 10px 20px;
@@ -74,14 +73,68 @@ body {
   cursor: not-allowed;
 }
 
+.moverD:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 .moverD{
   width: 60%;
   justify-content: center;
   align-items: center;
   display: flex;  
-  padding: 10px 20px;
+  
+}
 
+.torreA{
+  background-color: #18958d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;    
+}
+
+.torreA:hover {
+  background-color: #06bd62;
+}
+
+.torreA:disabled {
+  background-color: #5d5d5d;
+  cursor: not-allowed;
+}
+
+.torreB{
+  background-color: #18958d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;    
+}
+
+.torreB:hover {
+  background-color: #06bd62;
+}
+
+.torreB:disabled {
+  background-color: #5d5d5d;
+  cursor: not-allowed;
+}
+
+.torreC{
+  background-color: #18958d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;    
+}
+
+.torreC:hover {
+  background-color: #06bd62;
+}
+
+.torreC:disabled {
+  background-color: #5d5d5d;
+  cursor: not-allowed;
 }
 
 .moverD button {
@@ -95,44 +148,36 @@ body {
   font-weight: bold;
 }
 
-.moverD button.torreA{
-  background-color: #697b7e;
-}
-
-.moverD button.torreA:hover {
-  background-color: #2c2c2c;
+.panel button.juegoAuto{
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #b63a3a;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+
 }
 
-.moverD button.torreA:active {
+.panel button.juegoAuto:hover {
+  background-color: #2c2c2c;
+}
+.panel button.juegoAuto:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.panel button.juegoAuto:disabled:hover {
+  background-color: #ccc;
+}
+.panel button.juegoAuto:active {
   background-color: #046762;
 }
-
-.moverD button.torreB{
-  background-color: #697b7e;
+.panel button.juegoAuto:focus {
+  outline: none;
 }
-
-.moverD button.torreB:hover {
-  background-color: #2c2c2c;
-  color: white;
-}
-
-.moverD button.torreB:active {
-  background-color: #046762;
-}
-
-
-.moverD button.torreC{
-  background-color: #697b7e;
-}
-
-.moverD button.torreC:hover {
-  background-color: #2c2c2c;
-  color: white;
-}
-
-.moverD button.torreC:active {
-  background-color: #046762;
+.panel button.juegoAuto:focus-visible {
+  outline: 2px solid #4caf50;
 }
 
 
@@ -176,7 +221,6 @@ body {
   background-color: #ff5722; /* naranja oscuro */
 }
 
-
 .panel {
     margin-top: 50px;
 }
@@ -187,15 +231,36 @@ select, button {
     margin: 5px;
 }
 
+
 .panel button.reiniciarJuego {
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #d3de05;
-  color: rgb(0, 0, 0);
-  border: 0.5px solid #000;
+  background-color: #067b52;
+  color: white;
   font-weight: bold;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+.panel button.detenerJuego {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #b63a3a;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.panel button.detenerJuego:hover {
+  background-color: #2c2c2c;
+}
+
+.panel button.detenerJuego:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .panel button.reiniciarJuego:hover {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Torres de Hanoi</title>
+  <title>Torres de Hanoi - LinEmil</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
   <body>
@@ -29,7 +29,7 @@
       <option value="13">13</option>
     </select>
     
-    <button class = "iniciarJuego" onclick="iniciarJuego()">Iniciar Juego</button>
+    <button class = "iniciarJuego" id ="go" onclick="iniciarJuego()">Iniciar Juego</button>
 
     <div class = "container">
       <div class="torres col-sm-3">
@@ -38,19 +38,20 @@
         <div class="torre" id="torreC"></div>
       </div>
     </div>
-    <div class="container">
-      <div class="moverD">
-        <button onclick="seleccionarTorre('A')" class="torreA">TORRE A</button><br>
-        <button onclick="seleccionarTorre('B')" class="torreB">TORRE B</button><br>
-        <button onclick="seleccionarTorre('C')" class="torreC">TORRE C</button><br>
+    <div class="container" id="moverDiscos">
+      <div class="moverD" id="selecciondiscos">
+        <button id="boton_A" onclick="seleccionarTorre('A')" class="torreA">TORRE A</button><br>
+        <button id="boton_B" onclick="seleccionarTorre('B')" class="torreB">TORRE B</button><br>
+        <button id="boton_C" onclick="seleccionarTorre('C')" class="torreC">TORRE C</button><br>
       </div>
     </div>
     
     
     <div class="panel">
 
-      <button onclick="reiniciarJuego()" class="reiniciarJuego">Reiniciar Juego</button>
-
+      <button onclick="reiniciarJuego()"  class="reiniciarJuego" id="resetgame">Reiniciar Juego</button>
+      <button onclick="jugarAutomatico()" class= "juegoAuto" id="autogame">Jugar Automático</button><br>
+      <button id="stopgame" onclick="detenerJuegoAutomatico()" class= "detenerJuego" >Detener Juego Automático</button>
     </div>  
   </body>
 
