@@ -144,9 +144,25 @@ function seleccionarTorre(torreId) {
 
     if (!torreSeleccionadaDesde) {
         torreSeleccionadaDesde = torreId;
+        let seleccion = document.querySelector(`#torre${torreId}`);
+        seleccion.style.backgroundColor = "rgba(255, 255, 0, 0.5)"; // Cambia el color de fondo a amarillo
+        seleccion.style.transition = "background-color 0.5s ease"; // Añade una transición suave
+        seleccion.style.boxShadow = "0 0 10px rgba(255, 255, 0, 0.5)"; // Añade un efecto de sombra  
+        seleccion.style.transition = "transform 0.5s ease"; // Añade una transición suave
+        const disco = document.querySelector(`#torre${torreId} .disco-${torres[torreId].verCima()}`);
+        if (disco) {
+            disco.style.marginBottom = "100px";
+        }
         
     } else {
         torreSeleccionadaHacia = torreId;
+        let seleccionDesde = document.querySelector(`#torre${torreSeleccionadaDesde}`);
+        seleccionDesde.style.backgroundColor = ""; // Restablece el color de fondo
+        seleccionDesde.style.boxShadow = ""; // Restablece la sombra
+        seleccionDesde.style.transition = ""; // Restablece la transición
+        seleccionDesde.style.transform = ""; // Restablece la transformación
+        const discoDesde = document.querySelector(`#torre${torreSeleccionadaDesde} .disco-${torres[torreSeleccionadaDesde].verCima()}`);
+        
         moverDisco(torreSeleccionadaDesde, torreSeleccionadaHacia);
 
         // Reiniciar selecciones
@@ -158,10 +174,17 @@ function seleccionarTorre(torreId) {
 
 
 function moverDisco(desde, hacia) {
+    
     const n = parseInt(document.getElementById("numDiscos").value, 10);
 
     if (desde === hacia) {
-        alert("Debes mover a una torre diferente.");
+        
+        
+        const discoDesde = document.querySelector(`#torre${desde} .disco-${torres[desde].verCima()}`);
+        if (discoDesde) {
+            discoDesde.style.marginBottom = "0px";
+        }
+        
         return;
     }
 
@@ -169,7 +192,12 @@ function moverDisco(desde, hacia) {
     const destino = torres[hacia];
 
     if (origen.estaVacia()) {
-        alert("No hay discos en la torre de origen.");
+        
+        
+        const discoDesde = document.querySelector(`#torre${desde} .disco-${torres[desde].verCima()}`);
+        if (discoDesde) {
+            discoDesde.style.marginBottom = "0px";
+        }
         return;
     }
 
@@ -177,7 +205,11 @@ function moverDisco(desde, hacia) {
     const discoDestino = destino.verCima();
 
     if (!destino.estaVacia() && discoOrigen > discoDestino) {
-        alert("Movimiento inválido: no puedes colocar un disco grande sobre uno pequeño.");
+                
+        const discoDesde = document.querySelector(`#torre${desde} .disco-${torres[desde].verCima()}`);
+        if (discoDesde) {
+            discoDesde.style.marginBottom = "0px";
+        }
         return;
     }
 
@@ -226,12 +258,13 @@ function generarMovimientos(n, origen, destino, auxiliar) {
 function ejecutarMovimientosAutomaticos() {
     if (movimientosPendientes.length === 0) {
         clearInterval(intervalo);
-        alert("¡Juego completado!");
+        alert("¡Juego automatico completado!");
         BotonesMoverHabilitados();
         document.getElementById("resetgame").disabled = false; // Habilita el botón de reiniciar juego
         document.getElementById("stopgame").disabled = true; // Desactiva el botón de detener juego automático
         document.getElementById("autogame").disabled = true; // Desactiva el botón de jugar automático
-        console.log("Juego completado");
+        console.log("Juego completado automáticamente.");
+        movimientos = 0;
         return;
     }
 
@@ -251,6 +284,7 @@ function jugarAutomatico() {
         if (!continuar) {
             return; // No hace nada si el usuario cancela
         }else {
+            alert("iniciando juego automático...");
             document.getElementById("resetgame").disabled = true; //
             console.log("Jugando automáticamente...");
             reiniciarJuego();
@@ -276,6 +310,7 @@ function jugarAutomatico() {
         }
 
     }else {
+        alert("iniciando juego automático...");
         reiniciarJuego();
         iniciarJuego(); // Reinicia el juego
         BotonesMoverInhabilitados();
