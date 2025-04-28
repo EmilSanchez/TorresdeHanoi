@@ -255,20 +255,21 @@ function generarMovimientos(n, origen, destino, auxiliar) {
         generarMovimientos(n - 1, auxiliar, destino, origen);
     }
 }
+
 function ejecutarMovimientosAutomaticos() {
     if (movimientosPendientes.length === 0) {
         clearInterval(intervalo);
         alert("¡Juego automatico completado!");
         BotonesMoverHabilitados();
-        document.getElementById("resetgame").disabled = false; // Habilita el botón de reiniciar juego
-        document.getElementById("stopgame").disabled = true; // Desactiva el botón de detener juego automático
-        document.getElementById("autogame").disabled = true; // Desactiva el botón de jugar automático
+        document.getElementById("resetgame").disabled = false;
+        document.getElementById("stopgame").disabled = true;
+        document.getElementById("autogame").disabled = true;
         console.log("Juego completado automáticamente.");
         movimientos = 0;
         return;
     }
 
-    const [desde, hacia] = movimientosPendientes.shift(); // Saca el siguiente movimiento
+    const [desde, hacia] = movimientosPendientes.shift();
     const origen = torres[desde];
     const destino = torres[hacia];
     const disco = origen.desapilar();
@@ -276,7 +277,9 @@ function ejecutarMovimientosAutomaticos() {
     movimientos++;
 
     actualizar_torre();
+
 }
+
 function jugarAutomatico() {
 
     if (movimientos > 0) {
@@ -293,10 +296,11 @@ function jugarAutomatico() {
     
             const n = parseInt(document.getElementById("numDiscos").value, 10);
             console.log("Discos obtenidos" + n);
-            if (isNaN(n) || n <= 0) {
-                alert("Por favor, ingrese un número válido de discos.");
-                return;
-            }
+
+            // if (isNaN(n) || n <= 0) {
+            //     alert("Por favor, ingrese un número válido de discos.");
+            //     return;
+            // }
     
             movimientosPendientes = []; // Borra movimientos anteriores
             generarMovimientos(n, "A", "C", "B");
@@ -317,10 +321,12 @@ function jugarAutomatico() {
 
         const n = parseInt(document.getElementById("numDiscos").value, 10);
         console.log("Discos obtenidos" + n);
-        if (isNaN(n) || n <= 0) {
-            alert("Por favor, ingrese un número válido de discos.");
-            return;
-        }
+
+        // if (isNaN(n) || n <= 0) {
+        //     alert("Por favor, ingrese un número válido de discos.");
+        //     return;
+        // }
+        
         movimientosPendientes = []; // Borra movimientos anteriores
         generarMovimientos(n, "A", "C", "B");
         intervalo = setInterval(ejecutarMovimientosAutomaticos, 500);
@@ -345,6 +351,10 @@ function detenerJuegoAutomatico() {
     document.getElementById("resetgame").disabled = false; // Habilita el botón de reiniciar juego
     document.getElementById("stopgame").disabled = true; // Desactiva el botón de detener juego automático
     console.log("Juego automático detenido.");
+    console.log(`Torres después del movimiento #${movimientos}:`);
+    console.log("A:", torres["A"].obtenerDiscos());
+    console.log("B:", torres["B"].obtenerDiscos());
+    console.log("C:", torres["C"].obtenerDiscos());
 }
 
 
