@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a3a3a;
+  background-color: #115297;
+  height: 50px;
 }
 
 .inicio h1 {
@@ -15,6 +16,8 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   background: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
 .torres {
@@ -23,7 +26,6 @@ body {
   border-radius: 15px;
   justify-content: space-around;
   margin-top: 30px;
-  background-color: #cfcccc;
 }
 
 .container {
@@ -37,7 +39,7 @@ body {
   background: #ddd;
   height: 300px;
   position: relative;
-  border: 2px solid #3b3b3b;
+  border: 2px solid #8f0000;
   border-radius: 10px;
 }
 
@@ -79,6 +81,7 @@ body {
 }
 
 .moverD{
+  margin-top: -7px;
   width: 60%;
   justify-content: center;
   align-items: center;
